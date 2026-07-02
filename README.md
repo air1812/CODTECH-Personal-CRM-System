@@ -1,67 +1,213 @@
 # Personal CRM System
 
-## Candidate Information
-- Candidate Name: CODTECH Intern
-- Intern ID: CTTS006
-- Organization: CODTECH IT SOLUTIONS PRIVATE LIMITED
-- Internship Domain: Full Stack Web Development
+A modern **Personal CRM (Customer Relationship Management) System** developed as part of the **CODTECH Full Stack Web Development Internship**. This application enables users to securely manage personal contacts with authentication, CRUD operations, search functionality, and a clean responsive dashboard.
 
-## Project Overview
-Personal CRM System is a modern contact management web application designed for organizing leads, clients, friends, and family. Built with Node.js, Express.js, EJS, and SQLite3, it provides secure authentication, contact CRUD operations, dashboards, search, and responsive UI.
+---
 
-## Features
-- User registration and login with bcrypt password hashing
-- Session-based authentication with protected routes
-- Add, edit, view, and delete contacts
-- Contact fields: name, email, phone, company, job title, address, notes, category, status
-- Search and filter by name, email, phone, company, category, status
-- Dashboard showing total contacts, active, follow-up, and closed counts
-- Responsive design for desktop, tablet, and mobile
-- Professional blue-green theme with glass UI effects
-- 404 and 500 error pages
+# 👨‍💻 Intern Details
 
-## Installation
-1. Clone the repository
-2. Run `npm install`
-3. Copy `.env.example` to `.env` and update values as needed
-4. Run `npm start`
-5. Open `http://localhost:3001`
+**Candidate Name:** Saragada Abhiram
 
-## Technologies Used
+**Intern ID:** CTTS006
+
+**Organization:** CODTECH IT SOLUTIONS PRIVATE LIMITED
+
+**Internship Domain:** Full Stack Web Development
+
+**Duration:** 4 Weeks
+
+**Internship Period:** 14 June 2026 – 12 July 2026
+
+---
+
+# 📌 Project Name
+
+**Personal CRM System**
+
+---
+
+# 📖 Project Description
+
+The Personal CRM System is a full-stack web application designed to help users organize and manage their personal contacts efficiently.
+
+Users can securely register and log in to their accounts, add new contacts, edit existing contact information, search contacts, and delete contacts whenever required.
+
+The application is built using the MVC architecture and demonstrates secure authentication, database integration, and complete CRUD functionality using modern web technologies.
+
+---
+
+# 🚀 Features
+
+- User Registration
+- User Login & Logout
+- Secure Password Hashing using bcryptjs
+- Session-Based Authentication
+- Personal Dashboard
+- Add New Contacts
+- View All Contacts
+- Edit Contact Information
+- Delete Contacts
+- Search Contacts
+- Responsive User Interface
+- SQLite Database Integration
+- Flash Messages
+- Custom 404 Error Page
+- Custom 500 Error Page
+
+---
+
+# 🛠 Technologies Used
+
 - Node.js
 - Express.js
 - SQLite3
-- EJS templates
+- EJS
+- HTML5
+- CSS3
+- JavaScript
 - Express Session
 - bcryptjs
-- Helmet
-- Morgan
-- Day.js
-- Font Awesome
 
-## Folder Structure
-- `app.js` - application entrypoint
-- `database/` - SQLite database and initialization logic
-- `controllers/` - request handlers for auth and contacts
-- `middleware/` - authentication middleware
-- `models/` - data access models
-- `routes/` - application routes
-- `views/` - EJS templates and page views
-- `public/` - static assets: CSS, JS, images
-- `documentation/` - project documentation files
+---
 
-## Project Scope
-This project is a complete production-quality CRM system with secure user authentication, persistent contact management, reporting dashboards, and robust UI/UX design.
+# 📂 Project Structure
 
-## Future Enhancements
-- Add profile image uploads
-- Introduce team collaboration and role management
-- Add email reminders and follow-up scheduling
-- Add export/import contacts in CSV
-- Add dark mode and more advanced analytics
+```
+03-Personal-CRM-System/
+│
+├── database/
+├── documentation/
+│   └── screenshots/
+├── middleware/
+├── models/
+├── public/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── routes/
+├── views/
+├── app.js
+├── package.json
+├── package-lock.json
+├── README.md
+└── .gitignore
+```
 
-## Live Demo
-A live demo can be deployed on Render or another Node.js hosting platform with the provided configuration.
+---
 
-## GitHub Repository
+# ⚙ Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/air1812/CODTECH-Personal-CRM-System.git
+```
+
+### Navigate to the Project Folder
+
+```bash
+cd 03-Personal-CRM-System
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start the Application
+
+```bash
+npm start
+```
+
+### Open in Browser
+
+```
+http://localhost:3001
+```
+
+---
+
+# 📸 Output Screenshots
+
+The project includes screenshots of:
+
+- Home Page
+- Login Page
+- Register Page
+- Dashboard
+- Contact List
+- Add Contact
+- Edit Contact
+- Search Contact
+
+All screenshots are stored inside:
+
+```
+documentation/screenshots/
+```
+
+---
+
+# 📄 Documentation
+
+The documentation folder contains project-related documents such as:
+
+- Project Overview
+- Features
+- Folder Structure
+- Database Design
+- Authentication Flow
+- Installation Guide
+- Future Enhancements
+
+---
+
+# 🎯 Project Scope
+
+This project demonstrates the implementation of a complete Full Stack CRM application.
+
+The application showcases:
+
+- Backend Development
+- Frontend Development
+- Authentication & Authorization
+- Database Integration
+- CRUD Operations
+- MVC Architecture
+- Responsive UI Design
+
+---
+
+# 🔮 Future Enhancements
+
+- Contact Profile Images
+- Email Notifications
+- Contact Categories
+- Contact Notes
+- Export Contacts to CSV/PDF
+- Advanced Search Filters
+- Dark Mode
+- Cloud Database Support
+- Role-Based Access Control
+
+---
+
+# 🔗 GitHub Repository
+
+Repository URL:
+
 https://github.com/air1812/CODTECH-Personal-CRM-System
+
+---
+
+# 👨‍💻 Developed By
+
+**Saragada Abhiram**
+
+**Intern ID:** CTTS006
+
+**CODTECH IT SOLUTIONS PRIVATE LIMITED**
+
+**Full Stack Web Development Internship**
