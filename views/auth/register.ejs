@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<div class="auth-page auth-bg">
+  <div class="auth-card glass-card">
+    <div class="auth-header">
+      <h1>Create Account</h1>
+      <p>Start organizing contacts with a professional CRM dashboard.</p>
+    </div>
+    <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+    <% } %>
+    <% if (success) { %>
+    <div class="alert alert-success"><%= success %></div>
+    <% } %>
+    <form action="/register" method="POST" class="auth-form">
+      <label>Full Name</label>
+      <input type="text" name="name" placeholder="Your full name" required />
+      <label>Email</label>
+      <input type="email" name="email" placeholder="name@company.com" required />
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Enter password" required />
+      <label>Confirm Password</label>
+      <input type="password" name="confirm_password" placeholder="Confirm password" required />
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <p class="auth-note">Already have an account? <a href="/login">Login here</a></p>
+  </div>
+</div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,98 @@
+<%- include('../partials/header') %>
+<div class="layout-wrapper">
+  <aside class="sidebar">
+    <div class="brand">CRM<span>Hub</span></div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard" class="nav-link"><i class="fas fa-chart-line"></i>Dashboard</a>
+      <a href="/contacts" class="nav-link active"><i class="fas fa-address-book"></i>Contacts</a>
+      <a href="/contacts/new" class="nav-link"><i class="fas fa-user-plus"></i>Add Contact</a>
+      <a href="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Contact Directory</h1>
+        <p>Search, filter, and manage your contact list with ease.</p>
+      </div>
+      <a href="/contacts/new" class="btn btn-primary">New Contact</a>
+    </header>
+    <% if (success) { %>
+    <div class="alert alert-success"><%= success %></div>
+    <% } %>
+    <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+    <% } %>
+    <section class="filter-panel glass-card">
+      <form method="GET" action="/contacts" class="filter-form">
+        <input type="search" name="search" placeholder="Search name, email, phone or company" value="<%= filters.search %>" />
+        <select name="category">
+          <option value="all">All Categories</option>
+          <% categories.forEach((categoryOption) => { %>
+          <option value="<%= categoryOption %>" <%= filters.category === categoryOption ? 'selected' : '' %>><%= categoryOption %></option>
+          <% }) %>
+        </select>
+        <select name="status">
+          <option value="all">All Status</option>
+          <% statuses.forEach((statusOption) => { %>
+          <option value="<%= statusOption %>" <%= filters.status === statusOption ? 'selected' : '' %>><%= statusOption %></option>
+          <% }) %>
+        </select>
+        <select name="sort">
+          <option value="newest" <%= filters.sort === 'newest' ? 'selected' : '' %>>Newest First</option>
+          <option value="oldest" <%= filters.sort === 'oldest' ? 'selected' : '' %>>Oldest First</option>
+          <option value="alpha" <%= filters.sort === 'alpha' ? 'selected' : '' %>>Alphabetical</option>
+        </select>
+        <button type="submit" class="btn btn-outline">Filter</button>
+      </form>
+    </section>
+    <section class="table-section glass-card">
+      <div class="table-header">
+        <h2>Contact List</h2>
+        <span><%= contacts.length %> contacts shown</span>
+      </div>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Company</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (contacts.length === 0) { %>
+            <tr>
+              <td colspan="7" class="empty-state">No contacts match your search criteria.</td>
+            </tr>
+            <% } %>
+            <% contacts.forEach((contact) => { %>
+            <tr>
+              <td><%= contact.full_name %></td>
+              <td><%= contact.email %></td>
+              <td><%= contact.phone %></td>
+              <td><%= contact.company %></td>
+              <td><span class="tag <%= contact.category.toLowerCase() %>"><%= contact.category %></span></td>
+              <td><span class="tag status-<%= contact.status.replace(/\s+/g, '-').toLowerCase() %>"><%= contact.status %></span></td>
+              <td class="action-links">
+                <a href="/contacts/<%= contact.id %>" class="btn btn-small btn-secondary">View</a>
+                <a href="/contacts/<%= contact.id %>/edit" class="btn btn-small btn-primary">Edit</a>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <% for (let i = 1; i <= pagination.totalPages; i++) { %>
+        <a class="pagination-link <%= pagination.page === i ? 'active' : '' %>" href="/contacts?search=<%= filters.search %>&category=<%= filters.category %>&status=<%= filters.status %>&sort=<%= filters.sort %>&page=<%= i %>"><%= i %></a>
+        <% } %>
+      </div>
+    </section>
+  </main>
+</div>
+<%- include('../partials/footer') %>

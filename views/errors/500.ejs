@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+<div class="error-page">
+  <div class="error-card glass-card">
+    <h1>500</h1>
+    <h2>Server Error</h2>
+    <p><%= message || 'An unexpected error happened. Please try again later.' %></p>
+    <a href="/dashboard" class="btn btn-primary">Back to Dashboard</a>
+  </div>
+</div>
+<%- include('../partials/footer') %>

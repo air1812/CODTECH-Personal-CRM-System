@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+<div class="layout-wrapper">
+  <aside class="sidebar">
+    <div class="brand">CRM<span>Hub</span></div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard" class="nav-link"><i class="fas fa-chart-line"></i>Dashboard</a>
+      <a href="/contacts" class="nav-link"><i class="fas fa-address-book"></i>Contacts</a>
+      <a href="/contacts/new" class="nav-link"><i class="fas fa-user-plus"></i>Add Contact</a>
+      <a href="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Contact Details</h1>
+        <p>Review the contact profile and access quick actions.</p>
+      </div>
+      <div class="header-action">
+        <a href="/contacts/<%= contact.id %>/edit" class="btn btn-primary">Edit Contact</a>
+      </div>
+    </header>
+    <section class="detail-panel glass-card">
+      <div class="detail-grid">
+        <div>
+          <h2><%= contact.full_name %></h2>
+          <p><strong>Company:</strong> <%= contact.company %></p>
+          <p><strong>Job Title:</strong> <%= contact.job_title %></p>
+          <p><strong>Email:</strong> <%= contact.email %></p>
+          <p><strong>Phone:</strong> <%= contact.phone %></p>
+          <p><strong>Address:</strong> <%= contact.address %></p>
+        </div>
+        <div class="detail-meta">
+          <span class="tag blue"><%= contact.category %></span>
+          <span class="tag green"><%= contact.status %></span>
+          <p><strong>Date Created:</strong> <%= contact.created_at %></p>
+          <form action="/contacts/<%= contact.id %>/delete" method="POST" onsubmit="return confirm('Are you sure you want to delete this contact?');">
+            <button class="btn btn-danger">Delete Contact</button>
+          </form>
+        </div>
+      </div>
+      <div class="notes-block">
+        <h3>Notes</h3>
+        <p><%= contact.notes || 'No notes were added for this contact.' %></p>
+      </div>
+    </section>
+  </main>
+</div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+<div class="layout-wrapper">
+  <aside class="sidebar">
+    <div class="brand">CRM<span>Hub</span></div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard" class="nav-link"><i class="fas fa-chart-line"></i>Dashboard</a>
+      <a href="/contacts" class="nav-link"><i class="fas fa-address-book"></i>Contacts</a>
+      <a href="/contacts/new" class="nav-link active"><i class="fas fa-user-plus"></i>Add Contact</a>
+      <a href="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Add New Contact</h1>
+        <p>Keep your contact list up to date with essential relationship details.</p>
+      </div>
+    </header>
+    <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+    <% } %>
+    <section class="form-panel glass-card">
+      <form action="/contacts" method="POST" class="form-grid">
+        <label>Full Name</label>
+        <input type="text" name="full_name" value="<%= contact.full_name || '' %>" required />
+        <label>Email</label>
+        <input type="email" name="email" value="<%= contact.email || '' %>" required />
+        <label>Phone</label>
+        <input type="text" name="phone" value="<%= contact.phone || '' %>" required />
+        <label>Company</label>
+        <input type="text" name="company" value="<%= contact.company || '' %>" required />
+        <label>Job Title</label>
+        <input type="text" name="job_title" value="<%= contact.job_title || '' %>" required />
+        <label>Address</label>
+        <input type="text" name="address" value="<%= contact.address || '' %>" required />
+        <label>Category</label>
+        <select name="category" required>
+          <option value="">Choose category</option>
+          <% categories.forEach((categoryOption) => { %>
+          <option value="<%= categoryOption %>"><%= categoryOption %></option>
+          <% }) %>
+        </select>
+        <label>Status</label>
+        <select name="status" required>
+          <option value="">Choose status</option>
+          <% statuses.forEach((statusOption) => { %>
+          <option value="<%= statusOption %>"><%= statusOption %></option>
+          <% }) %>
+        </select>
+        <label>Notes</label>
+        <textarea name="notes" rows="4"><%= contact.notes || '' %></textarea>
+        <div class="form-actions">
+          <a href="/contacts" class="btn btn-outline">Cancel</a>
+          <button type="submit" class="btn btn-primary">Save Contact</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</div>
+<%- include('../partials/footer') %>

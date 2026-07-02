@@ -1,0 +1,86 @@
+<%- include('../partials/header') %>
+<div class="layout-wrapper">
+  <aside class="sidebar">
+    <div class="brand">CRM<span>Hub</span></div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard" class="nav-link active"><i class="fas fa-chart-line"></i>Dashboard</a>
+      <a href="/contacts" class="nav-link"><i class="fas fa-address-book"></i>Contacts</a>
+      <a href="/contacts/new" class="nav-link"><i class="fas fa-user-plus"></i>Add Contact</a>
+      <a href="/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i>Logout</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Welcome, <%= user.name %></h1>
+        <p>Manage your relationships, follow ups, and contact growth.</p>
+      </div>
+      <div class="header-action">
+        <a href="/contacts/new" class="btn btn-outline">Add Contact</a>
+      </div>
+    </header>
+    <% if (success) { %>
+    <div class="alert alert-success"><%= success %></div>
+    <% } %>
+    <% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+    <% } %>
+    <section class="cards-grid">
+      <article class="stats-card card-glass">
+        <div>
+          <span>Total Contacts</span>
+          <h2><%= total %></h2>
+        </div>
+        <i class="fas fa-users card-icon"></i>
+      </article>
+      <article class="stats-card card-glass">
+        <div>
+          <span>Active Contacts</span>
+          <h2><%= activeCount %></h2>
+        </div>
+        <i class="fas fa-check-circle card-icon"></i>
+      </article>
+      <article class="stats-card card-glass">
+        <div>
+          <span>Follow Up</span>
+          <h2><%= followUpCount %></h2>
+        </div>
+        <i class="fas fa-clock card-icon"></i>
+      </article>
+      <article class="stats-card card-glass">
+        <div>
+          <span>Closed Contacts</span>
+          <h2><%= closedCount %></h2>
+        </div>
+        <i class="fas fa-check-double card-icon"></i>
+      </article>
+    </section>
+    <section class="recent-section">
+      <div class="section-header">
+        <h2>Recently Added Contacts</h2>
+        <a href="/contacts" class="link-primary">View all contacts</a>
+      </div>
+      <div class="recent-grid">
+        <% if (recentContacts.length === 0) { %>
+        <div class="empty-state">No contacts added yet. Add your first contact!</div>
+        <% } else { %>
+        <% recentContacts.forEach((contact) => { %>
+        <article class="recent-card glass-card">
+          <div>
+            <h3><%= contact.full_name %></h3>
+            <p><strong><%= contact.company %></strong></p>
+            <p><i class="fas fa-envelope"></i> <%= contact.email %></p>
+            <p><i class="fas fa-phone"></i> <%= contact.phone %></p>
+          </div>
+          <div class="tag-row">
+            <span class="tag blue"><%= contact.category %></span>
+            <span class="tag green"><%= contact.status %></span>
+          </div>
+        </article>
+        <% }) %>
+        <% } %>
+      </div>
+    </section>
+  </main>
+</div>
+<%- include('../partials/footer') %>

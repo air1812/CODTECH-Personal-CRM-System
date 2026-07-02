@@ -1,0 +1,10 @@
+<%- include('../partials/header') %>
+<div class="error-page">
+  <div class="error-card glass-card">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>We couldn't find the page you're looking for. Please check the URL or return to the dashboard.</p>
+    <a href="<%= user ? '/dashboard' : '/login' %>" class="btn btn-primary"><%= user ? 'Back to Dashboard' : 'Back to Login' %></a>
+  </div>
+</div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,37 @@
+{
+  "name": "personal-crm-system",
+  "version": "1.0.0",
+  "description": "Personal CRM System built with Node.js, Express, SQLite3 and EJS.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "crm",
+    "personal-crm",
+    "express",
+    "sqlite3",
+    "ejs"
+  ],
+  "author": "CODTECH IT SOLUTIONS PRIVATE LIMITED",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-sqlite3": "^0.9.0",
+    "dayjs": "^1.11.9",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "sqlite3": "^5.1.6",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
