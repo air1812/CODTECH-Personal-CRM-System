@@ -64,4 +64,4 @@ This project is a complete production-quality CRM system with secure user authen
 A live demo can be deployed on Render or another Node.js hosting platform with the provided configuration.
 
 ## GitHub Repository
-Push this project to GitHub for version control and submission.
+https://github.com/air1812/CODTECH-Personal-CRM-System
